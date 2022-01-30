@@ -6,41 +6,149 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>940</width>
-    <height>629</height>
+    <width>938</width>
+    <height>624</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QTreeWidget" name="treeWidget">
+   <widget class="QListView" name="listView">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>191</width>
-      <height>601</height>
+      <x>270</x>
+      <y>10</y>
+      <width>661</width>
+      <height>121</height>
      </rect>
     </property>
-    <column>
-     <property name="text">
-      <string notr="true">1</string>
-     </property>
-    </column>
+   </widget>
+   <widget class="QGraphicsView" name="graphicsView">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>140</y>
+      <width>661</width>
+      <height>431</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTreeView" name="treeView">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>251</width>
+      <height>561</height>
+     </rect>
+    </property>
    </widget>
   </widget>
+  <widget class="QStatusBar" name="statusbar"/>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>940</width>
+     <width>938</width>
      <height>25</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuSort">
+    <property name="title">
+     <string>Sort</string>
+    </property>
+    <widget class="QMenu" name="menucolor">
+     <property name="title">
+      <string notr="true">color</string>
+     </property>
+     <addaction name="actionred"/>
+     <addaction name="actiongreen"/>
+     <addaction name="actionblue"/>
+    </widget>
+    <widget class="QMenu" name="menusaturation">
+     <property name="title">
+      <string>saturation</string>
+     </property>
+     <addaction name="actionlightest"/>
+     <addaction name="actiondarkest"/>
+    </widget>
+    <addaction name="menucolor"/>
+    <addaction name="menusaturation"/>
+   </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>Edit</string>
+    </property>
+    <property name="separatorsCollapsible">
+     <bool>true</bool>
+    </property>
+    <addaction name="actionCrop"/>
+    <addaction name="actionResize"/>
+   </widget>
+   <addaction name="menuSort"/>
+   <addaction name="menuEdit"/>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionred">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>red</string>
+   </property>
+  </action>
+  <action name="actiongreen">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>green</string>
+   </property>
+  </action>
+  <action name="actionblue">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>blue</string>
+   </property>
+  </action>
+  <action name="actionlightest">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>lightest</string>
+   </property>
+  </action>
+  <action name="actiondarkest">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>darkest</string>
+   </property>
+  </action>
+  <action name="actionCrop">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Crop</string>
+   </property>
+  </action>
+  <action name="actionResize">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Resize</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>
