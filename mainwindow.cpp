@@ -35,3 +35,8 @@ void MainWindow::on_treeView_clicked(const QModelIndex &index)
     ui->listView->setRootIndex(filemodel->setRootPath(sPath));
 }
 
+void MainWindow::on_add_to_base()
+{
+
+}
+
