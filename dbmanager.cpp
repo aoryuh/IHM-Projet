@@ -7,7 +7,7 @@
 DbManager::DbManager()
 {
     m_db = QSqlDatabase::addDatabase("QSQLITE");
-    static const QString path = "C:/Users/elhla/Desktop/Projects/IHM-Projet/p1_db.db";
+    static const QString path = "../IHM-Projet/p1_db.db";
     m_db.setDatabaseName(path);
 
     if (!m_db.open())
@@ -66,12 +66,12 @@ bool DbManager::addImageData(const QString& name, const QString& ref_id)
         }
         else
         {
-            qDebug() << "add person failed: " << queryAdd.lastError();
+            qDebug() << "add image failed: " << queryAdd.lastError();
         }
     }
     else
     {
-        qDebug() << "add person failed: name cannot be empty";
+        qDebug() << "add image failed: name cannot be empty";
     }
 
     return success;
@@ -90,12 +90,12 @@ bool DbManager::removeImageData(const QString& name)
 
         if(!success)
         {
-            qDebug() << "remove person failed: " << queryDelete.lastError();
+            qDebug() << "remove image failed: " << queryDelete.lastError();
         }
     }
     else
     {
-        qDebug() << "remove person failed: person doesnt exist";
+        qDebug() << "remove image failed: image doesnt exist";
     }
 
     return success;
@@ -103,7 +103,7 @@ bool DbManager::removeImageData(const QString& name)
 
 void DbManager::getAllImageData() const
 {
-    qDebug() << "Persons in db:";
+    qDebug() << "images in db:";
     QSqlQuery query("SELECT * FROM people");
     int idName = query.record().indexOf("name");
     while (query.next())
@@ -130,7 +130,7 @@ bool DbManager::imageDataExists(const QString& name) const
     }
     else
     {
-        qDebug() << "person exists failed: " << checkQuery.lastError();
+        qDebug() << "image exists failed: " << checkQuery.lastError();
     }
 
     return exists;
@@ -149,7 +149,7 @@ bool DbManager::removeAllImageData()
     }
     else
     {
-        qDebug() << "remove all persons failed: " << removeQuery.lastError();
+        qDebug() << "remove all images failed: " << removeQuery.lastError();
     }
 
     return success;

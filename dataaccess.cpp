@@ -17,6 +17,8 @@ void dataaccess::on_onSubmit_clicked()
 {
     DbManager db;
     db.createTable();
-    db.addImageData("A", "B");
+    QString imageColor=ui->imageColor->text();
+    QString imageTheme=ui->imageTheme->text();
+    db.addImageData(imageColor, imageTheme);
 }
 

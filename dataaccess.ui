@@ -64,7 +64,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="lineEdit"/>
+       <widget class="QLineEdit" name="imageColor"/>
       </item>
       <item>
        <spacer name="horizontalSpacer">
@@ -91,7 +91,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="lineEdit_2"/>
+       <widget class="QLineEdit" name="imageTheme"/>
       </item>
       <item>
        <spacer name="horizontalSpacer_2">
