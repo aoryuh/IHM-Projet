@@ -17,6 +17,8 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void on_set_imageView(const QString &path);
+
 
 private slots:
     void on_treeView_clicked(const QModelIndex &index);

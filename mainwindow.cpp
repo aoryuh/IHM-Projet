@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "dataaccess.h"
+#include <QGraphicsView>
+#include <QPixmap>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -35,6 +37,7 @@ void MainWindow::on_treeView_clicked(const QModelIndex &index)
 {
     QString sPath = dirmodel->fileInfo(index).absoluteFilePath();
     ui->listView->setRootIndex(filemodel->setRootPath(sPath));
+
 }
 
 void MainWindow::on_listView_doubleClicked(const QModelIndex &index)
@@ -47,3 +50,12 @@ void MainWindow::on_listView_doubleClicked(const QModelIndex &index)
     data.exec();
 }
 
+void MainWindow::on_set_imageView(const QString &path)
+{
+    QImage* image = new QImage();
+    image->load(path);
+    QGraphicsScene* scene = new QGraphicsScene();
+    ui->graphicsView->setScene(scene);
+    QGraphicsPixmapItem* item = new QGraphicsPixmapItem(QPixmap::fromImage(image));
+
+}

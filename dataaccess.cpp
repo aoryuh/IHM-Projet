@@ -1,6 +1,9 @@
 #include "dataaccess.h"
 #include "ui_dataaccess.h"
 #include <dbmanager.h>
+#include <QGraphicsView>
+#include <QPixmap>
+
 dataaccess::dataaccess(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::dataaccess)
@@ -41,4 +44,5 @@ void dataaccess::on_onReset_clicked()
 void dataaccess::on_imageIdRef_windowTitleChanged(const QString &title)
 {
     ui->imageIdRef->setText(title);
+
 }
