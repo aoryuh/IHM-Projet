@@ -14,9 +14,14 @@ class dataaccess : public QDialog
 public:
     explicit dataaccess(QWidget *parent = nullptr);
     ~dataaccess();
+    void on_imageIdRef_windowTitleChanged(const QString &title);
 
 private slots:
     void on_onSubmit_clicked();
+
+    void on_onReset_clicked();
+
+
 
 private:
     Ui::dataaccess *ui;
