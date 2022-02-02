@@ -15,6 +15,9 @@ public:
     explicit dataaccess(QWidget *parent = nullptr);
     ~dataaccess();
 
+private slots:
+    void on_onSubmit_clicked();
+
 private:
     Ui::dataaccess *ui;
 };

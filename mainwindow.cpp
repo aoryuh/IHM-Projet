@@ -8,7 +8,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    QString sPath = "D:/utilisateurs/Damien/Pictures";
+    QString sPath = "C:/Users/elhla/Pictures/Screenshots";
     dirmodel = new QFileSystemModel(this);
     dirmodel->setFilter(QDir:: NoDotAndDotDot |QDir::AllDirs);
     dirmodel->setRootPath(sPath);
@@ -36,9 +36,6 @@ void MainWindow::on_treeView_clicked(const QModelIndex &index)
     QString sPath = dirmodel->fileInfo(index).absoluteFilePath();
     ui->listView->setRootIndex(filemodel->setRootPath(sPath));
 }
-
-
-
 
 void MainWindow::on_listView_doubleClicked(const QModelIndex &index)
 {
