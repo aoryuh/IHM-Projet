@@ -6,41 +6,107 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>940</width>
-    <height>629</height>
+    <width>242</width>
+    <height>222</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QTreeWidget" name="treeWidget">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>191</width>
-      <height>601</height>
+      <x>10</x>
+      <y>10</y>
+      <width>220</width>
+      <height>40</height>
      </rect>
     </property>
-    <column>
-     <property name="text">
-      <string notr="true">1</string>
-     </property>
-    </column>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>Choisissez le support sur lequel se trouve </string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>votre bibliothèque:</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QListView" name="listView">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>60</y>
+      <width>221</width>
+      <height>151</height>
+     </rect>
+    </property>
    </widget>
   </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>940</width>
-     <height>25</height>
-    </rect>
+  <action name="actionred">
+   <property name="checkable">
+    <bool>true</bool>
    </property>
-  </widget>
-  <widget class="QStatusBar" name="statusbar"/>
+   <property name="text">
+    <string>red</string>
+   </property>
+  </action>
+  <action name="actiongreen">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>green</string>
+   </property>
+  </action>
+  <action name="actionblue">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>blue</string>
+   </property>
+  </action>
+  <action name="actionlightest">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>lightest</string>
+   </property>
+  </action>
+  <action name="actiondarkest">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>darkest</string>
+   </property>
+  </action>
+  <action name="actionCrop">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Crop</string>
+   </property>
+  </action>
+  <action name="actionResize">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Resize</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

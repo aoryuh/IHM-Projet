@@ -2,10 +2,11 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QFileSystemModel>
+#include "manager.h"
 
-QT_BEGIN_NAMESPACE
+
 namespace Ui { class MainWindow; }
-QT_END_NAMESPACE
 
 class MainWindow : public QMainWindow
 {
@@ -15,7 +16,13 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+
+    void on_listView_doubleClicked(const QModelIndex &index);
+
 private:
     Ui::MainWindow *ui;
+    QFileSystemModel *filemodel;
+
 };
 #endif // MAINWINDOW_H
