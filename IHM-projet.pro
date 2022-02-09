@@ -17,18 +17,18 @@ SOURCES += \
     dbmanager.cpp \
     main.cpp \
     mainwindow.cpp \
-    manager.cpp
+    picturemanager.cpp
 
 HEADERS += \
     dataaccess.h \
     dbmanager.h \
     mainwindow.h \
-    manager.h
+    picturemanager.h
 
 FORMS += \
     dataaccess.ui \
     mainwindow.ui \
-    manager.ui
+    picturemanager.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

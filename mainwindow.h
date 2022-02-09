@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 #include <QFileSystemModel>
-#include "manager.h"
+#include "picturemanager.h"
 
 
 namespace Ui { class MainWindow; }

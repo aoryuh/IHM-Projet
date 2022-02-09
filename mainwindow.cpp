@@ -27,14 +27,15 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_listView_doubleClicked(const QModelIndex &index)
 {
-    manager window;
-    window.setWindowTitle("votre bibliothèque");
+    pictureManager *w = new pictureManager(this);
+
+    w->setWindowTitle("votre bibliothèque");
 
     QString path = filemodel->fileInfo(index).absoluteFilePath();
-    window.setRootPath(path);
-    window.initialize();
+    w->setRootPath(path);
+    w->initialize();
 
-    qDebug("yo %s",window.getRootPath().toLocal8Bit().data());
-    window.exec();
-    this->close();
+    qDebug("yo %s",w->getRootPath().toLocal8Bit().data());
+    w->show();
+
 }
