@@ -149,7 +149,7 @@ bool DbManager::removeAllImageData()
 }
 
 void DbManager::initialize(const QString& path){
-    m_db = QSqlDatabase::addDatabase("QSQLITE");
+    m_db = QSqlDatabase::addDatabase(path);
     m_db.setDatabaseName(path);
 
     if (!m_db.open())

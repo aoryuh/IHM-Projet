@@ -16,11 +16,11 @@ pictureManager::pictureManager(QWidget *parent) :
 
     ui->treeView->setModel(dirmodel);
 
-    filemodel = new QFileSystemModel(this);
+    /*filemodel = new QFileSystemModel(this);
     filemodel->setFilter(QDir:: NoDotAndDotDot |QDir::Files);
     filemodel->setRootPath(rootPath);
 
-    ui->listView->setModel(filemodel);
+    ui->listView->setModel(filemodel);*/
 
 
 
@@ -35,8 +35,10 @@ pictureManager::~pictureManager()
 
 void pictureManager::on_treeView_clicked(const QModelIndex &index)
 {
-    QString sPath = dirmodel->fileInfo(index).absoluteFilePath();
-    ui->listView->setRootIndex(filemodel->setRootPath(sPath));
+    qDebug("pas oublier de remettre on_treeview_clicked");
+
+    /*QString sPath = dirmodel->fileInfo(index).absoluteFilePath();
+    ui->listView->setRootIndex(filemodel->setRootPath(sPath));*/
 
 }
 
@@ -50,15 +52,15 @@ void pictureManager::on_listView_doubleClicked(const QModelIndex &index)
     data.exec();
 }
 
-void pictureManager::on_set_imageView(const QString &path)
+/*void pictureManager::on_set_imageView(const QString &path)
 {
-    /*QImage* image = new QImage();
+    QImage* image = new QImage();
     image->load(path);
     QGraphicsScene* scene = new QGraphicsScene();
     ui->graphicsView->setScene(scene);
     QGraphicsPixmapItem* item = new QGraphicsPixmapItem(QPixmap::fromImage(image));
-*/
-}
+
+}*/
 
 void pictureManager::setRootPath(QString path){
     rootPath = path;
@@ -74,9 +76,28 @@ void pictureManager::initialize(){
 
     ui->treeView->setModel(dirmodel);
 
-    filemodel->setRootPath(rootPath);
 
-    ui->listView->setModel(filemodel);
+    /*filemodel->setRootPath(rootPath);
+
+    ui->listView->setModel(filemodel);*/
+
+    /*QDir dir(rootPath);
+    getList(dir);*/
+
+
+
+    //ui->listView->setModel(fileList);
+    getList(this->rootPath, "");
+    foreach (QFileInfo file ,fileList){
+        QString basename;
+        if(file.absolutePath().size() > 3)
+            basename = "/" + file.baseName();
+        else
+            basename = file.baseName();
+        QString filepathname = file.absolutePath() + basename + "." + file.completeSuffix();
+        ui->listWidget->addItem(filepathname);
+    }
+
     DbManager db;
     db.initialize(rootPath);
     qDebug("db %s",rootPath.toLocal8Bit().data());
@@ -84,6 +105,39 @@ void pictureManager::initialize(){
 
 void pictureManager::on_lineEdit_textChanged(const QString &arg1)
 {
+    fileList.clear();
+    ui->listWidget->clear();
+
+    getList(this->rootPath, ui->lineEdit->displayText());
+    foreach (QFileInfo file ,fileList){
+        QString basename;
+        if(file.absolutePath().size() > 3)
+            basename = "/" + file.baseName();
+        else
+            basename = file.baseName();
+        QString filepathname = file.absolutePath() + basename + "." + file.completeSuffix();
+
+        ui->listWidget->addItem(filepathname);
+    }
 
 }
+
+void pictureManager::getList(QDir rootpath, QString name){
+    foreach( const QFileInfo& entry, rootpath.entryInfoList(QDir::Files | QDir:: NoDotAndDotDot) ) {
+        if(entry.baseName().contains(name)){
+            fileList.append(entry);
+        }
+    }
+    foreach( const QFileInfo& entry, rootpath.entryInfoList(QDir::Dirs | QDir:: NoDotAndDotDot) ) {
+
+        QString dirpathname = entry.absolutePath() + "/" + entry.baseName();
+        QDir dir(dirpathname);
+        qDebug("dir %s",dirpathname.toLocal8Bit().data());
+        getList(dir, name);
+    }
+}
+
+
+
+
 

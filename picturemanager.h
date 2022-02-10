@@ -1,10 +1,11 @@
 #ifndef PICTUREMANAGER_H
 #define PICTUREMANAGER_H
 
-#include <QDialog>
 #include <QtCore>
 #include <QtGui>
 #include <QFileSystemModel>
+#include <QStandardItemModel>
+#include <QList>
 #include <QMainWindow>
 #include "dataaccess.h"
 
@@ -34,11 +35,15 @@ private slots:
 
     void on_lineEdit_textChanged(const QString &arg1);
 
+    void getList(QDir rootpath, QString name);
+
 private:
     Ui::pictureManager *ui;
     QFileSystemModel *dirmodel;
-    QFileSystemModel *filemodel;
+    QStandardItemModel *filemodel;
     QString rootPath;
+    QList<QFileInfo> fileList;
+
 
 
 };
