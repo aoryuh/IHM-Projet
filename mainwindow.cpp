@@ -35,7 +35,6 @@ void MainWindow::on_listView_doubleClicked(const QModelIndex &index)
     w->setRootPath(path);
     w->initialize();
 
-    qDebug("yo %s",w->getRootPath().toLocal8Bit().data());
     w->show();
 
 }

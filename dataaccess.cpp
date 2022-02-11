@@ -20,6 +20,7 @@ dataaccess::~dataaccess()
 void dataaccess::on_onSubmit_clicked()
 {
     DbManager db;
+    db.initialize("F:/db.db");
     db.createTable();
     QString imageColor=ui->imageColor->text();
     QString imageTheme=ui->imageTheme->text();

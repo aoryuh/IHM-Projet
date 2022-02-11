@@ -3,6 +3,7 @@
 #include <QSqlError>
 #include <QSqlRecord>
 #include <QDebug>
+#include <picturemanager.h>
 
 DbManager::DbManager()
 {
@@ -149,8 +150,11 @@ bool DbManager::removeAllImageData()
 }
 
 void DbManager::initialize(const QString& path){
-    m_db = QSqlDatabase::addDatabase(path);
-    m_db.setDatabaseName(path);
+    m_db = QSqlDatabase::addDatabase("QSQLITE");
+    QString dbpath = path + "db_picture.db";
+    m_db.setDatabaseName(dbpath);
+
+    m_db.setDatabaseName("db_picture");
 
     if (!m_db.open())
     {
