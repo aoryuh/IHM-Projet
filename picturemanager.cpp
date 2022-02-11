@@ -163,12 +163,19 @@ void pictureManager::getList(QDir rootpath, QString name){
             fileList.append(entry);
         }
     }
-    foreach( const QFileInfo& entry, rootpath.entryInfoList(QDir::Dirs | QDir:: NoDotAndDotDot) ) {
+    foreach( const QFileInfo& entry, rootpath.entryInfoList(QDir::Dirs | QDir:: NoDotAndDotDot |QDir:: Readable) ) {
+        if(!entry.baseName().isEmpty()){
 
-        QString dirpathname = entry.absolutePath() + "/" + entry.baseName();
-        QDir dir(dirpathname);
-        qDebug("dir %s",dirpathname.toLocal8Bit().data());
-        getList(dir, name);
+            QString dirpathname;
+            if(entry.absolutePath().size() > 3)
+                 dirpathname = entry.absolutePath() + "/" + entry.baseName();
+
+            else
+                 dirpathname = entry.absolutePath() + entry.baseName();
+            QDir dir(dirpathname);
+
+            getList(dir, name);
+        }
     }
 }
 
