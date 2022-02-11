@@ -15,12 +15,14 @@ DEFINES += PROJECT_PATH=\"\\\"$${_PRO_FILE_PWD_}/\\\"\"
 SOURCES += \
     dataaccess.cpp \
     dbmanager.cpp \
+    imageviewer.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     dataaccess.h \
     dbmanager.h \
+    imageviewer.h \
     mainwindow.h
 
 FORMS += \

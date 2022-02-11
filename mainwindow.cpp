@@ -1,8 +1,11 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "dataaccess.h"
+#include <QGraphicsPixmapItem>
 #include <QGraphicsView>
 #include <QPixmap>
+#include <QImage>
+
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -10,7 +13,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    QString sPath = "C:/Users/elhla/Pictures/Screenshots";
+    QString sPath = "C:/";
     dirmodel = new QFileSystemModel(this);
     dirmodel->setFilter(QDir:: NoDotAndDotDot |QDir::AllDirs);
     dirmodel->setRootPath(sPath);
@@ -56,6 +59,6 @@ void MainWindow::on_set_imageView(const QString &path)
     image->load(path);
     QGraphicsScene* scene = new QGraphicsScene();
     ui->graphicsView->setScene(scene);
-    QGraphicsPixmapItem* item = new QGraphicsPixmapItem(QPixmap::fromImage(image));
+    //QGraphicsPixmapItem* item = new QGraphicsPixmapItem(QPixmap::fromImage(image));
 
 }
